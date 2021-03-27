@@ -1,0 +1,5 @@
+[user]
+	email = calle.svensson@zeta-two.com
+	name = Calle Svensson
+[core]
+	excludesfile = /home/zetatwo/.gitignore
