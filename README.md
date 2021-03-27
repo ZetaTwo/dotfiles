@@ -1,19 +1,25 @@
 # ZetaTwo's dotfiles
 
-Based on: https://www.ackama.com/blog/posts/the-best-way-to-store-your-dotfiles-a-bare-git-repository-explained
+Based on: https://www.atlassian.com/git/tutorials/dotfiles
 
 ## Setup
 
-1. git init --bare $HOME/.cfg
-2. alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-3. echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> $HOME/.zsh/aliases
-4. config config --local status.showUntrackedFiles no
-5. config add .vimrc + config commit -m "add .vimrc" + set up a remote repository on GitHub or your Git server of choice + config push
+```
+git init --bare $HOME/.cfg
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+config config --local status.showUntrackedFiles no
+echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> $HOME/.bashrc
+```
 
 ## Installing
 
-1. echo ".cfg" >> .gitignore
-2. git clone --bare <remote-git-repo-url> $HOME/.cfg
-3. alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-4. config config --local status.showUntrackedFiles no
-5. config checkout
+```
+echo ".cfg" >> .gitignore
+git clone --bare <git-repo-url> $HOME/.cfg
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+config config --local status.showUntrackedFiles no
+mkdir -p .config-backup && \
+config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
+xargs -I{} mv {} .config-backup/{}
+config checkout
+```
