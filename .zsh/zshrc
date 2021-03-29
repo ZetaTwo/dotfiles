@@ -25,4 +25,5 @@ export SDCCDIR=/home/zetatwo/tools/sdcc
 export PATH=$PATH:/home/zetatwo/tools/010editor;
 export PATH="$HOME/.cargo/bin:$PATH"
 
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias pwnlayout="tmux split-window -d -h 'tty;cat'"
