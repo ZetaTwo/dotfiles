@@ -13,7 +13,6 @@ nb_lines_stack = 8
 nb_lines_threads = -1
 peek_calls = True
 peek_ret = True
-redirect = /dev/pts/2
 show_registers_raw = False
 show_source_code_variable_values = True
 show_stack_raw = False
