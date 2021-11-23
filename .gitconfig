@@ -3,3 +3,5 @@
 	name = Calle Svensson
 [core]
 	excludesfile = /home/zetatwo/.gitignore
+[pull]
+	rebase = false
