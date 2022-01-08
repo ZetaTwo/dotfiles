@@ -45,10 +45,16 @@ typeset -gU cdpath fpath mailpath path
 path=(
   /usr/local/{bin,sbin}
   ~/.local/bin
+  ~/tools/zig
   ~/tools/010editor
   ~/.cargo/bin
   /usr/local/go/bin
   $path
+)
+
+fpath=(
+  ${ZDOTDIR:-~}/.zsh_functions
+  $fpath
 )
 
 #

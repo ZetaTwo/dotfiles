@@ -1,13 +1,17 @@
 [user]
-	email = calle.svensson@zeta-two.com
-	name = Calle Svensson
+    email = calle.svensson@zeta-two.com
+    name = Calle Svensson
+
+[init]
+    defaultBranch = main
 
 [core]
-	excludesfile = /home/zetatwo/.gitignore
+    excludesfile = /home/zetatwo/.gitignore
     pager = delta
 
 [pull]
-	rebase = false
+    rebase = false
+    ff = only
 
 [interactive]
     diffFilter = delta --color-only --features=interactive

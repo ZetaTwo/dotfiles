@@ -47,4 +47,3 @@ stream-status () {
 ssm-status () {
   stream-status "Säkerhets-SM - $1"
 }
-. "/home/zetatwo/.acme.sh/acme.sh.env"
