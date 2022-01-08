@@ -19,14 +19,12 @@ PERL_LOCAL_LIB_ROOT="/home/zetatwo/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB
 PERL_MB_OPT="--install_base \"/home/zetatwo/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/zetatwo/perl5"; export PERL_MM_OPT;
 
-#export PATH=/home/zetatwo/tools/fomu-toolchain/bin:$PATH
-export SDCCDIR=/home/zetatwo/tools/sdcc
-. "/home/zetatwo/.acme.sh/acme.sh.env"
-export PATH=$PATH:/home/zetatwo/tools/010editor;
-export PATH="$HOME/.cargo/bin:$PATH"
-
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias pwnlayout="tmux split-window -d -h 'tty;cat'"
+
+if command -v exa &> /dev/null; then
+  alias ls='exa'
+fi
 
 stream-status () {
   curl -s 'http://127.0.0.1:9090/zetatwo/status' --data "status=$1" > /dev/null
