@@ -12,3 +12,4 @@ fi
 
 . "/home/zetatwo/.acme.sh/acme.sh.env"
 . "$HOME/.cargo/env"
+export SDCCDIR=${HOME}/tools/sdcc
