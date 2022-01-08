@@ -25,6 +25,18 @@ alias pwnlayout="tmux split-window -d -h 'tty;cat'"
 if command -v exa &> /dev/null; then
   alias ls='exa'
 fi
+if command -v duf &> /dev/null; then
+  alias df='duf'
+fi
+if command -v dust &> /dev/null; then
+  alias du='dust'
+fi
+if command -v rg &> /dev/null; then
+  alias grep='rg'
+fi
+if command -v procs &> /dev/null; then
+  alias ps='procs'
+fi
 
 stream-status () {
   curl -s 'http://127.0.0.1:9090/zetatwo/status' --data "status=$1" > /dev/null
