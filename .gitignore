@@ -11,3 +11,5 @@
 # Debugging artifacts
 core
 
+# Credentials
+.gitcookies
