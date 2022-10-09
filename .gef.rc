@@ -7,16 +7,18 @@ layout = legend regs stack code args source memory threads trace extra
 libc_args = False
 libc_args_path = 
 nb_lines_backtrace = 10
+nb_lines_backtrace_before = 2
 nb_lines_code = 6
 nb_lines_code_prev = 3
 nb_lines_stack = 8
 nb_lines_threads = -1
 peek_calls = True
 peek_ret = True
+redirect = 
+show_opcodes_size = 0
 show_registers_raw = False
 show_source_code_variable_values = True
 show_stack_raw = False
-use_capstone = False
 
 [dereference]
 max_recursion = 7
@@ -24,16 +26,14 @@ max_recursion = 7
 [entry-break]
 entrypoint_symbols = main _main __libc_start_main __uClibc_main start _start
 
-[gef-remote]
-clean_on_exit = False
-
 [gef]
 autosave_breakpoints_file = 
 debug = False
 disable_color = False
-extra_plugins_dir = /home/zetatwo/gef-extras/scripts
+extra_plugins_dir = 
 follow_child = True
 readline_compat = False
+show_deprecation_warnings = True
 tempdir = /tmp/gef
 
 [got]
@@ -56,23 +56,21 @@ always_show_ascii = False
 [highlight]
 regex = False
 
-[ida-interact]
-host = 127.0.0.1
-port = 1337
-sync_cursor = False
-
 [pattern]
 length = 1024
 
 [pcustom]
 max_depth = 4
-struct_path = /home/zetatwo/gef-extras/structs
+struct_path = /tmp/gef/structs
+structure_name = bold blue
+structure_size = green
+structure_type = bold red
 
 [process-search]
 ps_command = /usr/bin/ps auxww
 
 [syscall-args]
-path = /home/zetatwo/gef-extras/syscall-tables
+path = /tmp/gef/syscall-tables
 
 [theme]
 address_code = red
@@ -97,43 +95,32 @@ table_heading = blue
 max_tracing_recursion = 1
 tracefile_prefix = ./gef-trace-
 
-[unicorn-emulate]
-show_disassembly = False
-verbose = False
-
 [aliases]
-pf = print-format
-status = process-status
-binaryninja-interact = ida-interact
-bn = ida-interact
-binja = ida-interact
-lookup = scan
-grep = search-pattern
-xref = search-pattern
-flags = edit-flags
-mprotect = set-permission
-emulate = unicorn-emulate
-cs-dis = capstone-disassemble
-sc-search = shellcode search
-sc-get = shellcode get
-asm = assemble
-ps = process-search
-start = entry-break
-nb = name-break
 ctx = context
 telescope = dereference
-pattern offset = pattern search
+flags = edit-flags
+start = entry-break
+fmtstr-helper = format-string-helper
 hl = highlight
-highlight ls = highlight list
-hll = highlight list
-hlc = highlight clear
 highlight set = highlight add
 hla = highlight add
+hlc = highlight clear
+highlight ls = highlight list
+hll = highlight list
 highlight delete = highlight remove
 highlight del = highlight remove
 highlight unset = highlight remove
 highlight rm = highlight remove
 hlr = highlight remove
-fmtstr-helper = format-string-helper
+nb = name-break
+pattern offset = pattern search
+pf = print-format
+ps = process-search
+status = process-status
+lookup = scan
+grep = search-pattern
+xref = search-pattern
+sc-get = shellcode get
+sc-search = shellcode search
 screen-setup = tmux-setup
 

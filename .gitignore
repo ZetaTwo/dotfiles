@@ -10,6 +10,7 @@
 
 # Debugging artifacts
 core
+!core/
 
 # Credentials
 .gitcookies

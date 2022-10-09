@@ -47,3 +47,8 @@ stream-status () {
 ssm-status () {
   stream-status "Säkerhets-SM - $1"
 }
+
+genz-status () {
+  stream-status "Gen Z Hack Challenge 2021 - $1"
+}
+
