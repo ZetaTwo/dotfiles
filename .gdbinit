@@ -5,4 +5,3 @@ import os
 if os.getenv('TMUX', False):
     gdb.execute('gef config context.redirect /dev/pts/2')
 end
-
