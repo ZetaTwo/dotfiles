@@ -4,19 +4,24 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+
 # Customize to your needs...
 setopt PROMPT_SP
+
 PATH="/home/zetatwo/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/zetatwo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/zetatwo/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/zetatwo/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/zetatwo/perl5"; export PERL_MM_OPT;
+
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias pwnlayout="tmux split-window -d -h 'tty;cat'"
+
 if command -v exa &> /dev/null; then
   alias ls='exa'
 fi
@@ -32,11 +37,13 @@ fi
 if command -v procs &> /dev/null; then
   alias ps='procs'
 fi
+
 stream-status () {
   curl -s 'http://127.0.0.1:9090/zetatwo/status' --data "status=$1" > /dev/null
   LOGFILE="$HOME/stream-status.log"
   touch $LOGFILE && echo "$(date +%s) $1" >> $LOGFILE
 }
+
 ssm-status () {
   stream-status "Säkerhets-SM - $1"
 }
