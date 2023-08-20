@@ -52,3 +52,8 @@ genz-status () {
   stream-status "Gen Z Hack Challenge 2021 - $1"
 }
 
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
+
+eval "$(atuin init zsh)"
