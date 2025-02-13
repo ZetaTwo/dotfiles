@@ -14,5 +14,5 @@ fi
 . "$HOME/.cargo/env"
 export SDCCDIR="$HOME/tools/sdcc"
 export PIN_ROOT="$HOME/tools/pin"
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 export WORKON_HOME=$HOME/.virtualenvs
