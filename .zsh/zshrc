@@ -52,12 +52,38 @@ genz-status () {
   stream-status "Gen Z Hack Challenge 2021 - $1"
 }
 
+# pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
+### LS25 Deploy commands ###
+alias ls25_deploy="poetry run ansible-playbook start.yml -e=@~/Projects/ls25/ls25/credentials --ask-vault-pass -e=deploy_mode=deploy -l "
+alias ls25_deployr="poetry run ansible-playbook start.yml -e=@~/Projects/ls25/ls25/credentials --ask-vault-pass -e=deploy_mode=deploy -e role_only=true -l "
+alias ls25_undeploy="poetry run ansible-playbook start.yml -e=@~/Projects/ls25/ls25/credentials --ask-vault-pass -e=deploy_mode=undeploy -l "
+alias ls25_redeploy="poetry run ansible-playbook start.yml -e=@~/Projects/ls25/ls25/credentials --ask-vault-pass -e=deploy_mode=redeploy -l "
+alias ls25_deploy-poweron="poetry run ansible-playbook start.yml -e=@~/Projects/ls25/ls25/credentials --ask-vault-pass -e=deploy_mode=deploy -e=poweron=yes -e=pre_role=ccdcoe.core.powerstate -l "
+alias ls25_deploy-poweroff="poetry run ansible-playbook start.yml -e=@~/Projects/ls25/ls25/credentials --ask-vault-pass -e=deploy_mode=deploy -e=shutdown=yes -e=pre_role=ccdcoe.core.powerstate -l "
+alias ls25_deploy-resnap="poetry run ansible-playbook start.yml -e=@~/Projects/ls25/ls25/credentials --ask-vault-pass -e=deploy_mode=deploy -e=snap_mode=resnap -l "
+alias ls25_deploy-snap="poetry run ansible-playbook start.yml -e=@~/Projects/ls25/ls25/credentials --ask-vault-pass -e=deploy_mode=deploy -e=snapshot_mode=snap -e pre_role=nova.core.snapshots -l "
+alias ls25_get-ansible-vars="poetry run ansible-inventory -e=@~/Projects/ls25/ls25/credentials --ask-vault-pass --vars --host "
+alias ls25_get-ansible-hosts="poetry run ansible-playbook start.yml -e=@~/Projects/ls25/ls25/credentials --ask-vault-pass -e=deploy_mode=deploy --list-hosts -l "
+
+
 eval "$(atuin init zsh)"
 
 export WASMTIME_HOME="$HOME/.wasmtime"
-
 export PATH="$WASMTIME_HOME/bin:$PATH"
+
+# bun completions
+[ -s "/home/zetatwo/.bun/_bun" ] && source "/home/zetatwo/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+. "$HOME/.atuin/bin/env"
